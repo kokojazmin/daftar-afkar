@@ -1,6 +1,6 @@
-# Maintainer: YOUR_NAME <YOUR_EMAIL>
+# Maintainer: kokojazmin <mobinboloke33@gmail.com>
 pkgname=daftar-afkar-git
-pkgver=0.1.0.r1.g0000000
+pkgver=0.1.0.r2.g89b8b36
 pkgrel=1
 pkgdesc='دفتر افکار CBT - Persian thought record journal'
 arch=('any')
@@ -15,7 +15,9 @@ sha256sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/daftar-afkar"
-  git describe --long --tags 2>/dev/null | sed 's/^v//' | sed 's/\([^-]*\)-\([0-9]*\)-g/\1.r\2.g/' || printf '0.1.0.r%s.g%s' "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  printf '0.1.0.r%s.g%s\n' \
+    "$(git rev-list --count HEAD)" \
+    "$(git rev-parse --short HEAD)"
 }
 
 package() {

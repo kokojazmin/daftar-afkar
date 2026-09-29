@@ -1,6 +1,6 @@
 pkgbase = daftar-afkar-git
 	pkgdesc = دفتر افکار CBT - Persian thought record journal
-	pkgver = 0.1.0.r1.g0000000
+	pkgver = 0.1.0.r2.g89b8b36
 	pkgrel = 1
 	url = https://github.com/kokojazmin/daftar-afkar
 	arch = any
