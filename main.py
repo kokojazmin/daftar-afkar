@@ -6,7 +6,7 @@ from pathlib import Path
 from PySide6.QtCore import QStandardPaths, QUrl
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication, QMainWindow
-from PySide6.QtWebEngineCore import QWebEngineProfile
+from PySide6.QtWebEngineCore import QWebEngineProfile, QWebEngineSettings
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
 APP_ID = "daftar-afkar"
@@ -29,6 +29,10 @@ class Window(QMainWindow):
 
         self.view = QWebEngineView(self)
         self.setCentralWidget(self.view)
+
+        settings = self.view.settings()
+        settings.setAttribute(QWebEngineSettings.WebAttribute.ShowScrollBars, False)
+        settings.setAttribute(QWebEngineSettings.WebAttribute.JavascriptCanAccessClipboard, True)
 
         profile = QWebEngineProfile.defaultProfile()
         storage = app_data_dir() / "webengine"
