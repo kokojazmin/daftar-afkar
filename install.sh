@@ -1,4 +1,4 @@
-```bash
+
 #!/bin/bash
 
 set -euo pipefail
@@ -14,10 +14,10 @@ cleanup() {
 trap cleanup EXIT
 
 printf '\n'
-printf '  دفتر افکار - نصب کننده\n'
-printf '  =====================\n\n'
+printf 'دفتر افکار - نصب کننده\n'
+printf '%s\n\n' '====================='
 
-# Check operating system
+# Check Arch Linux
 if [[ ! -f /etc/arch-release ]]; then
     echo "خطا: این نصب‌کننده فقط برای Arch Linux و توزیع‌های مبتنی بر آن طراحی شده است."
     exit 1
@@ -31,15 +31,15 @@ for command in git makepkg sudo; do
     fi
 done
 
-# Check that makepkg is not being run as root
+# Do not run as root
 if [[ "$EUID" -eq 0 ]]; then
     echo "خطا: این اسکریپت را با root اجرا نکنید."
     echo "مثال:"
-    echo "  bash install.sh"
+    echo "  curl -fsSL https://raw.githubusercontent.com/kokojazmin/daftar-afkar/main/install.sh | bash"
     exit 1
 fi
 
-# Remove previous temporary build
+# Prepare build directory
 rm -rf "$BUILD_DIR"
 
 echo "→ دریافت آخرین نسخه از GitHub..."
@@ -47,15 +47,11 @@ git clone --depth=1 "$REPO_URL" "$BUILD_DIR"
 
 cd "$BUILD_DIR"
 
-echo "→ بررسی وابستگی‌های ساخت..."
-makepkg --syncdeps --needed --noconfirm
-
 echo "→ ساخت و نصب پکیج..."
-makepkg --install --noconfirm
+makepkg --syncdeps --needed --install --noconfirm
 
 printf '\n'
 printf '✓ دفتر افکار با موفقیت نصب شد.\n\n'
 printf 'برای اجرای برنامه:\n'
 printf '  %s\n\n' "$APP_NAME"
 printf 'همچنین می‌توانید آن را از منوی برنامه‌های دسکتاپ اجرا کنید.\n'
-```
