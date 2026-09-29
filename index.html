@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دفتر افکار</title>
+
+<style>
+:root{--bg:#EEF4F1;--card:#FFFFFF;--c1:#F1F6F3;--c2:#DDE7E2;--pri:#1E6B5D;--onp:#fff;--pc:#CDEFE3;--onpc:#00201A;--sc:#DCEEE7;--tx:#16201D;--tv:#4A5753;--ol:#7A8782;--ov:#D0DAD5;--er:#BA1A1A;--ring:rgba(30,107,93,.18);--sh1:0 1px 2px rgba(20,50,42,.06),0 10px 28px -10px rgba(20,50,42,.16);--sh2:0 2px 4px rgba(20,50,42,.06),0 18px 40px -12px rgba(20,50,42,.30);--shp:0 8px 20px -6px rgba(30,107,93,.55);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1311;--card:#18201D;--c1:#222B27;--c2:#2E3934;--pri:#8FD3BD;--onp:#00382E;--pc:#17453B;--onpc:#C2F2E2;--sc:#2B423B;--tx:#E1E7E3;--tv:#B4BFBA;--ol:#83908A;--ov:#33403A;--er:#FFB4AB;--ring:rgba(143,211,189,.22);--sh1:0 1px 2px rgba(0,0,0,.4),0 10px 28px -10px rgba(0,0,0,.6);--sh2:0 2px 4px rgba(0,0,0,.4),0 18px 40px -12px rgba(0,0,0,.75);--shp:0 8px 20px -6px rgba(0,0,0,.6)}}
+:root[data-theme="dark"]{--bg:#0D1311;--card:#18201D;--c1:#222B27;--c2:#2E3934;--pri:#8FD3BD;--onp:#00382E;--pc:#17453B;--onpc:#C2F2E2;--sc:#2B423B;--tx:#E1E7E3;--tv:#B4BFBA;--ol:#83908A;--ov:#33403A;--er:#FFB4AB;--ring:rgba(143,211,189,.22);--sh1:0 1px 2px rgba(0,0,0,.4),0 10px 28px -10px rgba(0,0,0,.6);--sh2:0 2px 4px rgba(0,0,0,.4),0 18px 40px -12px rgba(0,0,0,.75);--shp:0 8px 20px -6px rgba(0,0,0,.6)}
+*{box-sizing:border-box}html,body{scrollbar-width:none;-ms-overflow-style:none}::-webkit-scrollbar{width:0;height:0;display:none}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.85 "Noto Sans Arabic",Vazirmatn,Tahoma,system-ui,sans-serif;padding-bottom:120px}
+main{max-width:680px;margin:0 auto;padding:20px 16px}
+h1{font-size:28px;font-weight:700;margin:0 0 6px;line-height:1.5}
+h2{font-size:18px;font-weight:600;margin:0 0 4px;line-height:1.6;display:flex;align-items:center;gap:12px}
+.hero{position:relative;overflow:hidden;background:var(--pc);color:var(--onpc);border-radius:32px;padding:26px 24px;margin-bottom:16px;box-shadow:var(--sh1)}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:var(--pri);opacity:.1}
+.hero::before{width:190px;height:190px;inset-inline-end:-60px;top:-70px}
+.hero::after{width:110px;height:110px;inset-inline-start:-30px;bottom:-50px}
+.hero>*{position:relative}
+.hero p{margin:0;font-size:15px;opacity:.88}
+.brand{width:52px;height:52px;border-radius:18px;background:var(--pri);color:var(--onp);display:grid;place-items:center;margin-bottom:14px;box-shadow:var(--shp)}
+svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card{background:var(--card);border-radius:28px;padding:22px;margin-bottom:16px;box-shadow:var(--sh1)}
+.num{flex:none;width:32px;height:32px;line-height:32px;text-align:center;border-radius:12px;background:var(--pri);color:var(--onp);font-size:15px;font-weight:600;box-shadow:var(--shp)}
+.h{color:var(--tv);font-size:14px;margin:0 0 10px}
+h2+.h{margin-top:8px}
+.f{margin-top:16px}
+label,.lb{display:block;font-weight:600;font-size:15px;margin-bottom:2px}
+textarea{width:100%;font:inherit;color:var(--tx);background:var(--c1);border:1.5px solid transparent;border-radius:18px;padding:14px 16px;resize:vertical;min-height:96px;line-height:1.85}
+textarea::placeholder{color:var(--ol)}
+textarea:focus{outline:0;border-color:var(--pri);background:var(--card);box-shadow:0 0 0 4px var(--ring)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{font:inherit;font-size:14px;color:var(--tv);background:var(--c1);border:1px solid var(--ov);border-radius:999px;padding:5px 16px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--pri);color:var(--onp);border-color:var(--pri);box-shadow:var(--shp)}
+.chip[aria-pressed="true"]::before{content:"✓ "}
+.chip:focus-visible,.btn:focus-visible,.nav button:focus-visible,summary:focus-visible,input[type=range]:focus-visible{outline:2px solid var(--pri);outline-offset:3px}
+.sl{display:grid;grid-template-columns:1fr auto;gap:0 14px;align-items:center;margin-top:16px}
+.sl label{grid-column:1/-1;margin:0 0 4px;font-weight:400;color:var(--tv);font-size:14.5px}
+.sl output{min-width:56px;text-align:center;font-weight:600;font-size:14px;color:var(--onpc);background:var(--sc);border-radius:999px;padding:1px 10px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;margin:0;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:8px;border-radius:99px;background:linear-gradient(to left,var(--pri) var(--p,50%),var(--c2) var(--p,50%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:-8px;border-radius:50%;background:var(--card);border:6px solid var(--pri);box-shadow:0 3px 8px rgba(0,0,0,.28)}
+input[type=range]::-moz-range-track{height:8px;border-radius:99px;background:var(--c2)}
+input[type=range]::-moz-range-progress{height:8px;border-radius:99px;background:var(--pri)}
+input[type=range]::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--card);border:6px solid var(--pri);box-shadow:0 3px 8px rgba(0,0,0,.28)}
+.hint{background:var(--c1);border-radius:16px;border-inline-start:4px solid var(--pri);padding:10px 14px;margin-top:12px;font-size:14px;color:var(--tv)}
+.hint:empty{display:none}
+.hint b{color:var(--tx);font-weight:600}
+.btn{font:inherit;font-weight:600;border:0;border-radius:999px;height:54px;padding:0 32px;cursor:pointer;background:var(--pri);color:var(--onp);box-shadow:var(--shp)}
+.btn.t{background:var(--card);color:var(--pri);height:44px;padding:0 20px;font-size:14px;box-shadow:var(--sh1)}
+.btn.d{color:var(--er)}
+.bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px}
+#form .bar .btn{flex:1;min-width:220px}
+.msg{font-size:14px;color:var(--er);margin:0}
+.msg.ok{color:var(--pri)}
+.nav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));width:min(340px,calc(100% - 32px));background:var(--card);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:var(--sh2)}
+.nav button{font:inherit;font-size:14px;font-weight:600;color:var(--tv);background:transparent;border:0;border-radius:24px;height:48px;flex:1;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.nav svg{width:20px;height:20px}
+.nav button[aria-selected="true"]{background:var(--pri);color:var(--onp);box-shadow:var(--shp)}
+.stats{display:flex;gap:10px;margin:16px 0}
+.stat{flex:1;background:var(--card);border-radius:20px;padding:12px 14px;font-size:13px;color:var(--tv);line-height:1.6;box-shadow:var(--sh1)}
+.stat b{display:block;font-size:26px;color:var(--pri);font-weight:700;line-height:1.4}
+.day{font-size:14px;font-weight:600;margin:24px 6px 10px;color:var(--tv)}
+details{background:var(--card);border-radius:24px;margin-bottom:10px;padding:0 18px;box-shadow:var(--sh1)}
+details[open]{box-shadow:var(--sh2)}
+summary{position:relative;list-style:none;cursor:pointer;padding:16px 0;padding-inline-end:26px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;inset-inline-end:4px;top:26px;width:8px;height:8px;border:solid var(--ol);border-width:0 2px 2px 0;transform:rotate(45deg)}
+details[open] summary::after{transform:rotate(-135deg)}
+.tm{font-size:13px;color:var(--tv)}
+.th{margin:2px 0 8px;font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+details[open] .th{display:block}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:var(--sc);color:var(--onpc);border-radius:999px;padding:0 12px;font-size:13px}
+.det{padding-bottom:16px;border-top:1px solid var(--ov)}
+.det p{margin:2px 0 0;white-space:pre-wrap}
+.det .lb{margin-top:14px;color:var(--tv);font-size:14px;font-weight:500}
+.empty{text-align:center;color:var(--tv);padding:48px 16px;background:var(--card);border-radius:28px;box-shadow:var(--sh1)}
+select{width:100%;font:inherit;color:var(--tx);background:var(--c1);border:1.5px solid transparent;border-radius:18px;padding:12px 14px;margin-top:6px}
+select:focus{outline:0;border-color:var(--pri);box-shadow:0 0 0 4px var(--ring)}
+.ck{display:flex;align-items:center;gap:10px;margin:14px 0;font-weight:400;cursor:pointer}
+.ck input{width:20px;height:20px;accent-color:var(--pri);margin:0}
+#txT{min-height:220px;font-size:14px;margin-bottom:8px}
+#txCard .bar .btn:first-child{flex:1;min-width:160px}
+[hidden]{display:none!important}
+input[type=file]{display:none}
+</style>
+</head>
+<body>
+<main>
+<section id="vNew">
+<div class="hero"><div class="brand"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><h1>دفتر افکار</h1><p>وقتی فکری آزارت می‌دهد، آن را از ذهن به کاغذ بیاور و قدم‌به‌قدم بررسی‌اش کن. نه لازم است همه بخش‌ها کامل باشد، نه لازم است جواب «درست» پیدا کنی.</p></div>
+<form id="form" autocomplete="off"></form>
+</section>
+<section id="vHist" hidden>
+<h1 style="margin-top:8px">سوابق</h1>
+<div class="stats" id="stats"></div>
+<div id="list"></div>
+<div class="card" id="txCard">
+<h2>خروجی متنی</h2>
+<p class="h">ثبت‌ها را به‌صورت یک متن خوانا کپی یا دانلود کن تا به درمانگر، دوست یا یک دستیار هوش مصنوعی بدهی.</p>
+<div class="f"><label for="txR">بازه زمانی</label><select id="txR"><option value="1">امروز</option><option value="7">۷ روز اخیر</option><option value="30">۳۰ روز اخیر</option><option value="0">همه ثبت‌ها</option></select></div>
+<label class="ck"><input type="checkbox" id="txA"> افزودن راهنما برای هوش مصنوعی</label>
+<textarea id="txT" readonly></textarea>
+<div class="bar"><button class="btn" id="txC" type="button">کپی متن</button><button class="btn t" id="txD" type="button">دانلود (TXT)</button></div>
+<p class="msg ok" id="txM" role="status"></p>
+</div>
+<div class="bar">
+<button class="btn t" id="exp" type="button">خروجی پشتیبان (JSON)</button>
+<button class="btn t" id="imp" type="button">بازیابی از پشتیبان</button>
+<input type="file" id="file" accept=".json,application/json">
+</div>
+<p class="msg ok" id="hm" role="status"></p>
+</section>
+</main>
+<nav class="nav" role="tablist">
+<button role="tab" id="tNew" aria-selected="true" type="button"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span>ثبت جدید</span></button>
+<button role="tab" id="tHist" aria-selected="false" type="button"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>سوابق</span></button>
+</nav>
+<script>
+const $=s=>document.querySelector(s),KEY='cbt_records_v1',DK='cbt_draft_v1';
+const pt=r=>r.style.setProperty('--p',r.value+'%'),ptAll=()=>document.querySelectorAll('input[type=range]').forEach(pt);
+const fa=n=>Number(n).toLocaleString('fa-IR');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ld=k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}};
+const st=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}};
+const EM=['اضطراب','نگرانی','ترس','استرس','غم','ناامیدی','درماندگی','خشم','احساس گناه','شرم','تنهایی','ناکامی','خستگی ذهنی'];
+const DI=[['ذهن‌خوانی','فرض می‌کنم می‌دانم دیگران درباره‌ام چه فکری می‌کنند.'],['پیشگویی','مطمئنم که آینده بد خواهد شد.'],['فاجعه‌سازی','بدترین حالت ممکن را حتمی و غیرقابل‌تحمل می‌بینم.'],['همه‌یا‌هیچ','فقط سیاه یا سفید می‌بینم؛ یا کامل، یا شکست.'],['تعمیم افراطی','یک اتفاق را به «همیشه» یا «هیچ‌وقت» تعمیم می‌دهم.'],['برچسب‌زنی','به‌جای توصیف رفتار، به خودم یا دیگری برچسب می‌زنم.'],['باید و نباید','با «باید»ها و «نباید»های سخت‌گیرانه خودم را تحت فشار می‌گذارم.'],['استدلال احساسی','چون چنین حسی دارم، پس حتماً حقیقت دارد.'],['شخصی‌سازی','همه‌چیز را تقصیر یا مسئولیت خودم می‌دانم.'],['فیلتر منفی','فقط جنبه‌های منفی را می‌بینم و مثبت‌ها را نادیده می‌گیرم.']];
+const T=['sit','thought','evf','eva','friend','worst','ctrl','bal'];
+let recs=ld(KEY)||[],emo={},dis=[];
+const fld=(id,l,h,p)=>`<div class="f"><label for="${id}">${l}</label><p class="h">${h}</p><textarea id="${id}" placeholder="${p||''}"></textarea></div>`;
+const sld=(id,l,v)=>`<div class="sl"><label for="${id}">${l}</label><input type="range" id="${id}" min="0" max="100" step="5" value="${v}" style="--p:${v}%"><output for="${id}">${fa(v)}٪</output></div>`;
+const sec=(n,t,h,body)=>`<div class="card"><h2><span class="num">${fa(n)}</span>${t}</h2><p class="h">${h}</p>${body}</div>`;
+$('#form').innerHTML=
+sec(1,'موقعیت','چه اتفاقی افتاد؟ کجا بودی، چه زمانی، با چه کسی، و درباره چه چیزی فکر می‌کردی؟ فقط واقعیت‌های قابل مشاهده را بنویس، نه تفسیر.',fld('sit','','','مثلاً: شب، تنها در خانه، پیام مدیرم را دیدم و جواب نداده بودم…').replace('<label for="sit"></label><p class="h"></p>',''))+
+sec(2,'احساس‌ها','همین الان چه حس‌هایی داری؟ هر چند تا را که می‌شناسی انتخاب کن و شدت هرکدام را بسنج.',`<div class="chips" id="emoC"></div><div id="emoB"></div>`)+
+sec(3,'فکر خودکار','اولین فکر یا تصویری که پیش از آن حس‌ها از ذهنت گذشت چه بود؟ آن را مثل یک جمله بنویس، نه یک سؤال.',fld('thought','','','مثلاً: «حتماً کارم را بد انجام داده‌ام و دیگر بهم اعتماد نمی‌کنند.»').replace('<label for="thought"></label><p class="h"></p>','')+sld('bb','الان چقدر این فکر را باور داری؟',80))+
+sec(4,'تله‌های فکری','این فکر با کدام الگوهای رایج ذهن نگران شباهت دارد؟ می‌توانی هیچ‌کدام یا چند مورد را انتخاب کنی.',`<div class="chips" id="disC"></div><div class="hint" id="disH"></div>`)+
+sec(5,'شواهد','فرق «واقعیت» با «حدس یا احساس» را نگه دار. شواهد باید چیزی باشد که یک ناظر بی‌طرف هم تأیید کند.',fld('evf','شواهدی که فکر را تأیید می‌کند','چه واقعیت‌هایی نشان می‌دهد این فکر درست است؟')+fld('eva','شواهدی که فکر را زیر سؤال می‌برد','چه چیزی را نادیده می‌گیرم؟ آیا زمانی بوده که این فکر درست از آب درنیامد؟ چه چیزی مخالف آن است؟'))+
+sec(6,'نگاه از زاویه‌های دیگر','برای شکستن نشخوار ذهنی، بحث را از دایره یک فکر بیرون ببر.',fld('friend','اگر دوست صمیمی‌ام همین فکر را داشت…','به او چه می‌گفتم؟ با خودم هم همان‌قدر مهربان هستم؟')+fld('worst','بدترین، بهترین و محتمل‌ترین نتیجه','هر سه را بنویس. اگر بدترین اتفاق بیفتد، چطور از پسش برمی‌آیم؟ پنج سال دیگر این موضوع چقدر مهم است؟')+fld('ctrl','چه چیزی در کنترل من است؟','کدام بخش موضوع دست من است و کدام نیست؟ کوچک‌ترین قدم عملی که امروز می‌توانم بردارم چیست؟ (اگر قدمی نیست، رها کردن این نگرانی برای امروز همان قدم است.)'))+
+sec(7,'فکر متعادل','با توجه به شواهد و زاویه‌های بالا، نگاهی که هم منصفانه و هم واقع‌بینانه باشد چیست؟ لازم نیست مثبت باشد، فقط باید درست‌تر باشد.',fld('bal','','','مثلاً: «ممکن است اشتباه کرده باشم، ولی یک اشتباه کل کارم را تعیین نمی‌کند. می‌توانم فردا سؤال کنم و اصلاحش کنم.»').replace('<label for="bal"></label><p class="h"></p>','')+sld('bl','چقدر این فکر متعادل را باور داری؟',50))+
+sec(8,'بازسنجی','بعد از این بررسی، حال تو چطور است؟',sld('ba','الان چقدر فکر خودکار اولیه را باور داری؟',80)+`<div id="emoA"></div>`)+
+`<div class="bar"><button class="btn" type="submit">ذخیره ثبت</button><p class="msg" id="fm" role="status"></p></div>`;
+$('#emoC').innerHTML=EM.map(e=>`<button type="button" class="chip" aria-pressed="false" data-e="${e}">${e}</button>`).join('');
+$('#disC').innerHTML=DI.map(d=>`<button type="button" class="chip" aria-pressed="false" data-d="${d[0]}">${d[0]}</button>`).join('');
+function rEmo(){
+ const ks=Object.keys(emo);
+ $('#emoB').innerHTML=ks.map((k,i)=>sld('eb'+i,'شدت «'+esc(k)+'»',emo[k].b)).join('');
+ $('#emoA').innerHTML=ks.length?ks.map((k,i)=>sld('ea'+i,'شدت «'+esc(k)+'» اکنون',emo[k].a??emo[k].b)).join(''):'<p class="h">پس از انتخاب احساس‌ها در بخش ۲، اینجا دوباره شدتشان را بسنج.</p>';
+}
+function rDis(){$('#disH').innerHTML=dis.map(n=>'<b>'+n+':</b> '+DI.find(d=>d[0]==n)[1]).join('<br>')}
+function collect(){return{...Object.fromEntries(T.map(k=>[k,$('#'+k).value.trim()])),emo:Object.keys(emo).map(n=>({n,b:emo[n].b,a:emo[n].a??emo[n].b})),dis:[...dis],bb:+$('#bb').value,bl:+$('#bl').value,ba:+$('#ba').value}}
+function draft(){st(DK,{...collect(),raw:emo})}
+const F=$('#form');
+F.addEventListener('click',e=>{
+ const c=e.target.closest('.chip');if(!c)return;
+ const on=c.getAttribute('aria-pressed')!='true';c.setAttribute('aria-pressed',on);
+ if(c.dataset.e){on?emo[c.dataset.e]={b:50}:delete emo[c.dataset.e];rEmo()}
+ else{on?dis.push(c.dataset.d):dis=dis.filter(x=>x!=c.dataset.d);rDis()}
+ draft();
+});
+F.addEventListener('input',e=>{
+ const t=e.target;
+ if(t.type=='range'){
+  t.nextElementSibling.textContent=fa(t.value)+'٪';pt(t);
+  const k=Object.keys(emo);
+  if(/^eb\d/.test(t.id)){emo[k[t.id.slice(2)]].b=+t.value;const a=$('#emoA');const y=a.scrollTop;rEmoA()}
+  else if(/^ea\d/.test(t.id))emo[k[t.id.slice(2)]].a=+t.value;
+ }
+ draft();
+});
+function rEmoA(){
+ Object.keys(emo).forEach((k,i)=>{const r=$('#ea'+i);if(r&&emo[k].a===undefined){r.value=emo[k].b;pt(r);r.nextElementSibling.textContent=fa(emo[k].b)+'٪'}});
+}
+const dkey=d=>{const x=new Date(d);return x.getFullYear()+'-'+(x.getMonth()+1)+'-'+x.getDate()};
+F.addEventListener('submit',e=>{
+ e.preventDefault();const r=collect(),m=$('#fm');m.className='msg';
+ if(!r.sit||!r.thought||!r.emo.length){m.textContent='موقعیت، فکر خودکار و دست‌کم یک احساس را پر کن.';return}
+ r.id=Date.now();r.ts=new Date().toISOString();recs.unshift(r);
+ const ok=st(KEY,recs);
+ F.reset();emo={};dis=[];document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed','false'));
+ rEmo();rDis();['bb','ba'].forEach(i=>{$('#'+i).value=80;$('#'+i).nextElementSibling.textContent=fa(80)+'٪'});
+ $('#bl').value=50;$('#bl').nextElementSibling.textContent=fa(50)+'٪';ptAll();
+ try{localStorage.removeItem(DK)}catch(x){}
+ show('H');$('#hm').className=ok?'msg ok':'msg';$('#hm').textContent=ok?'ثبت ذخیره شد.':'ذخیره‌سازی مرورگر در دسترس نیست؛ همین حالا از سوابق خروجی پشتیبان بگیر.';
+});
+const dfmt=d=>new Intl.DateTimeFormat('fa-IR-u-ca-persian',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(d));
+const tfmt=d=>new Intl.DateTimeFormat('fa-IR',{hour:'2-digit',minute:'2-digit'}).format(new Date(d));
+const pr=(l,v)=>v?`<div class="lb">${l}</div><p>${esc(v)}</p>`:'';
+function rHist(){
+ const L=$('#list');$('#txCard').hidden=!recs.length;
+ if(!recs.length){L.innerHTML='<div class="empty">هنوز ثبتی نداری. اولین فکرت را در «ثبت جدید» بنویس.</div>';$('#stats').innerHTML='';return}
+ const days={};recs.forEach(r=>(days[dkey(r.ts)]??=[]).push(r));
+ const today=dkey(Date.now());let s=0,d=new Date();if(!days[dkey(d)])d.setDate(d.getDate()-1);
+ while(days[dkey(d)]){s++;d.setDate(d.getDate()-1)}
+ $('#stats').innerHTML=`<div class="stat"><b>${fa((days[today]||[]).length)}</b>ثبت امروز</div><div class="stat"><b>${fa(s)}</b>روز پیاپی</div><div class="stat"><b>${fa(recs.length)}</b>کل ثبت‌ها</div>`;
+ L.innerHTML=Object.keys(days).map(k=>`<div class="day">${k==today?'امروز، ':''}${dfmt(days[k][0].ts)}</div>`+days[k].map(r=>{
+  const ch=r.ba!=null&&r.bb!=null?` · باور به فکر: ${fa(r.bb)}٪ ← ${fa(r.ba)}٪`:'';
+  return `<details><summary><div class="tm">${tfmt(r.ts)}${ch}</div><div class="th">${esc(r.thought)}</div><div class="tags">${r.emo.map(e=>`<span class="tag">${esc(e.n)} ${fa(e.b)} ← ${fa(e.a)}</span>`).join('')}</div></summary><div class="det">${pr('موقعیت',r.sit)}${pr('فکر متعادل',r.bal)}${r.dis.length?`<div class="lb">تله‌های فکری</div><div class="tags">${r.dis.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>`:''}${pr('شواهد موافق',r.evf)}${pr('شواهد مخالف',r.eva)}${pr('نگاه یک دوست',r.friend)}${pr('بدترین، بهترین، محتمل‌ترین',r.worst)}${pr('در کنترل من',r.ctrl)}${r.bl!=null?`<div class="lb">باور به فکر متعادل</div><p>${fa(r.bl)}٪</p>`:''}<div class="bar"><button class="btn t d" type="button" data-del="${r.id}">حذف</button></div></div></details>`}).join('')).join('');gen();
+}
+$('#list').addEventListener('click',e=>{
+ const b=e.target.closest('[data-del]');if(!b)return;
+ if(!b.dataset.s){b.dataset.s=1;b.textContent='مطمئنی؟ دوباره بزن';return}
+ recs=recs.filter(r=>r.id!=b.dataset.del);st(KEY,recs);rHist();
+});
+function show(v){
+ $('#vNew').hidden=v!='N';$('#vHist').hidden=v!='H';
+ $('#tNew').setAttribute('aria-selected',v=='N');$('#tHist').setAttribute('aria-selected',v=='H');
+ if(v=='H')rHist();else $('#hm').textContent='';
+ window.scrollTo(0,0);
+}
+$('#tNew').onclick=()=>show('N');$('#tHist').onclick=()=>{$('#hm').textContent='';show('H')};
+$('#exp').onclick=async()=>{
+ const m=$('#hm');m.className='msg';
+ if(!recs.length){m.textContent='هنوز ثبتی برای خروجی نیست.';return}
+ const n='thought-records-'+dkey(Date.now())+'.json',blob=new Blob([JSON.stringify(recs,null,2)],{type:'application/json'});
+ try{
+  const dl=window.claude&&await claude.use('downloads');
+  if(dl){await dl.save({filename:n,data:blob});m.className='msg ok';m.textContent='فایل پشتیبان آماده شد.'}
+  else{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=n;a.click();m.className='msg ok';m.textContent='فایل پشتیبان ساخته شد.'}
+ }catch(x){m.textContent=x&&x.code=='declined'?'ذخیره فایل لغو شد.':'در این محیط دانلود ممکن نیست.'}
+};
+
+const AI='این‌ها ثبت‌های من از تمرین «ثبت افکار» در رویکرد شناختی‑رفتاری (CBT) است. لطفاً با نگاهی همدلانه و غیرقضاوتی: (۱) الگوهای تکرارشونده در افکار و محرک‌های من را پیدا کن، (۲) تله‌های فکری پرتکرارم را نام ببر، (۳) فکرهای متعادلی را که نوشته‌ام بازبینی و در صورت نیاز دقیق‌تر کن، و (۴) چند تمرین کوچک و عملی برای نشخوار ذهنی و اضطرابم پیشنهاد بده. توجه: تو جایگزین درمانگر نیستی و اگر نشانه‌ای از خطر دیدی، مرا به کمک حرفه‌ای راهنمایی کن.';
+const q=(l,v)=>v?l+':\n'+v+'\n\n':'';
+function gen(){
+ const n=+$('#txR').value;let a=recs.slice().sort((x,y)=>x.id-y.id);
+ if(n){const c=new Date();c.setHours(0,0,0,0);c.setDate(c.getDate()-(n-1));a=a.filter(r=>new Date(r.ts)>=c)}
+ let t=$('#txA').checked?AI+'\n\n————————————————\n\n':'';
+ t+='دفتر افکار (ثبت افکار CBT)\nبازه: '+$('#txR').selectedOptions[0].textContent+'\nتعداد ثبت: '+fa(a.length)+'\n';
+ if(!a.length)t+='\nدر این بازه ثبتی وجود ندارد.\n';
+ a.forEach((r,i)=>{
+  t+='\n————————————————\nثبت '+fa(i+1)+' | '+dfmt(r.ts)+'، ساعت '+tfmt(r.ts)+'\n\n'
+  +q('موقعیت',r.sit)
+  +q('احساس‌ها (شدت قبل ← بعد)',r.emo.map(e=>e.n+' '+fa(e.b)+'٪ ← '+fa(e.a)+'٪').join('، '))
+  +q('فکر خودکار',r.thought+(r.bb!=null?'\n(میزان باور: '+fa(r.bb)+'٪ ← '+fa(r.ba)+'٪ پس از بررسی)':''))
+  +q('تله‌های فکری',r.dis.join('، '))
+  +q('شواهد موافق فکر',r.evf)+q('شواهد مخالف فکر',r.eva)
+  +q('اگر دوستم بود چه می‌گفتم',r.friend)
+  +q('بدترین، بهترین و محتمل‌ترین نتیجه',r.worst)
+  +q('چه چیزی در کنترل من است / قدم عملی',r.ctrl)
+  +q('فکر متعادل',r.bal+(r.bal&&r.bl!=null?'\n(میزان باور: '+fa(r.bl)+'٪)':''));
+ });
+ $('#txT').value=t.trim();$('#txM').textContent='';
+}
+$('#txR').onchange=gen;$('#txA').onchange=gen;
+$('#txC').onclick=async()=>{
+ const m=$('#txM'),t=$('#txT');let ok=false;m.className='msg';
+ try{await navigator.clipboard.writeText(t.value);ok=true}catch(e){t.focus();t.select();try{ok=document.execCommand('copy')}catch(x){}}
+ m.className=ok?'msg ok':'msg';m.textContent=ok?'متن کپی شد.':'کپی خودکار ممکن نشد؛ متن انتخاب شد، با Ctrl+C یا نگه‌داشتن انگشت کپی کن.';
+};
+$('#txD').onclick=async()=>{
+ const m=$('#txM');m.className='msg';
+ const n='thought-records-'+dkey(Date.now())+'.txt',blob=new Blob(['\ufeff'+$('#txT').value],{type:'text/plain;charset=utf-8'});
+ try{
+  const dl=window.claude&&await claude.use('downloads');
+  if(dl){await dl.save({filename:n,data:blob});m.className='msg ok';m.textContent='فایل متنی آماده شد.'}
+  else{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=n;a.click();m.className='msg ok';m.textContent='فایل متنی ساخته شد.'}
+ }catch(x){m.textContent=x&&x.code=='declined'?'ذخیره فایل لغو شد.':'در این محیط دانلود ممکن نیست.'}
+};
+$('#imp').onclick=()=>$('#file').click();
+$('#file').onchange=e=>{
+ const f=e.target.files[0],m=$('#hm');if(!f)return;m.className='msg';
+ const rd=new FileReader();
+ rd.onload=()=>{
+  try{
+   const a=JSON.parse(rd.result);if(!Array.isArray(a))throw 0;
+   const ids=new Set(recs.map(r=>r.id));let n=0;
+   a.forEach(r=>{if(r&&r.id&&r.ts&&r.thought&&Array.isArray(r.emo)&&!ids.has(r.id)){r.dis=r.dis||[];recs.push(r);n++}});
+   recs.sort((x,y)=>y.id-x.id);st(KEY,recs);rHist();m.className='msg ok';m.textContent=fa(n)+' ثبت جدید بازیابی شد.';
+  }catch(x){m.textContent='فایل معتبر نیست.'}
+ };
+ rd.readAsText(f);e.target.value='';
+};
+(function(){
+ const d=ld(DK);if(!d)return;
+ T.forEach(k=>{if(d[k])$('#'+k).value=d[k]});
+ ['bb','bl','ba'].forEach(k=>{if(d[k]!=null){$('#'+k).value=d[k];$('#'+k).nextElementSibling.textContent=fa(d[k])+'٪'}});
+ emo=d.raw||{};dis=d.dis||[];
+ document.querySelectorAll('[data-e]').forEach(c=>c.setAttribute('aria-pressed',c.dataset.e in emo));
+ document.querySelectorAll('[data-d]').forEach(c=>c.setAttribute('aria-pressed',dis.includes(c.dataset.d)));
+ rDis();ptAll();
+})();
+rEmo();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+pkgbase = daftar-afkar-git
+	pkgdesc = دفتر افکار CBT - Persian thought record journal
+	pkgver = 0.1.0.r1.g0000000
+	pkgrel = 1
+	url = https://github.com/kokojazmin/daftar-afkar
+	arch = any
+	license = MIT
+	makedepends = git
+	depends = python
+	depends = pyside6
+	depends = qt6-webengine
+	provides = daftar-afkar
+	conflicts = daftar-afkar
+	source = git+https://github.com/kokojazmin/daftar-afkar.git
+	sha256sums = SKIP
+
+pkgname = daftar-afkar-git

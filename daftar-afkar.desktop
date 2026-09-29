@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=دفتر افکار
+Name[en]=Thought Journal
+Comment=دفتر ثبت افکار به روش CBT
+Exec=daftar-afkar
+Icon=daftar-afkar
+Terminal=false
+Type=Application
+Categories=Office;Utility;
+StartupWMClass=daftar-afkar
